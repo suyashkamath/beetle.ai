@@ -4,7 +4,7 @@ export const baseTemplate = (content: string) => `
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeDetector.ai</title>
+  <title>Beetle.ai</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc;">
   <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -18,7 +18,7 @@ export const baseTemplate = (content: string) => `
               <span style="font-size: 24px; font-weight: bold; color: #667eea;">&lt;/&gt;</span>
             </div>
             <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">
-              CodeDetector.ai
+              Beetle.ai
             </h1>
           </div>
           <p style="margin: 8px 0 0 0; color: rgba(255, 255, 255, 0.9); font-size: 16px;">
@@ -48,7 +48,7 @@ export const baseTemplate = (content: string) => `
                   <div style="width: 24px; height: 24px; background-color: #667eea; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
                     <span style="font-size: 14px; font-weight: bold; color: #ffffff;">&lt;/&gt;</span>
                   </div>
-                  <span style="font-size: 18px; font-weight: 600; color: #1a202c;">CodeDetector.ai</span>
+                  <span style="font-size: 18px; font-weight: 600; color: #1a202c;">Beetle.ai</span>
                 </div>
                 <p style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">
                   Secure, intelligent code analysis<br>
@@ -57,18 +57,18 @@ export const baseTemplate = (content: string) => `
               </td>
               <td style="text-align: right; vertical-align: top; width: 40%;">
                 <div style="margin-bottom: 16px;">
-                  <a href="https://codetector.ai" style="display: inline-block; padding: 10px 20px; background-color: #667eea; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">
+                  <a href="https://beetle.ai" style="display: inline-block; padding: 10px 20px; background-color: #667eea; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">
                     Visit Dashboard
                   </a>
                 </div>
                 <div style="display: flex; gap: 12px; justify-content: flex-end;">
-                  <a href="https://github.com/codetector-ai" style="color: #64748b; text-decoration: none;">
+                  <a href="https://github.com/beetle-ai" style="color: #64748b; text-decoration: none;">
                     <span style="font-size: 14px;">GitHub</span>
                   </a>
-                  <a href="https://twitter.com/codetector_ai" style="color: #64748b; text-decoration: none;">
+                  <a href="https://twitter.com/beetle_ai" style="color: #64748b; text-decoration: none;">
                     <span style="font-size: 14px;">Twitter</span>
                   </a>
-                  <a href="https://codetector.ai/docs" style="color: #64748b; text-decoration: none;">
+                  <a href="https://beetle.ai/docs" style="color: #64748b; text-decoration: none;">
                     <span style="font-size: 14px;">Docs</span>
                   </a>
                 </div>
@@ -82,12 +82,12 @@ export const baseTemplate = (content: string) => `
             <tr>
               <td style="text-align: center;">
                 <p style="margin: 0; font-size: 12px; color: #94a3b8; line-height: 1.5;">
-                  <a href="https://codetector.ai/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> | 
-                  <a href="https://codetector.ai/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> | 
-                  <a href="https://codetector.ai/unsubscribe" style="color: #94a3b8; text-decoration: underline;">Unsubscribe</a>
+                  <a href="https://beetle.ai/privacy" style="color: #94a3b8; text-decoration: underline;">Privacy Policy</a> | 
+                  <a href="https://beetle.ai/terms" style="color: #94a3b8; text-decoration: underline;">Terms of Service</a> | 
+                  <a href="https://beetle.ai/unsubscribe" style="color: #94a3b8; text-decoration: underline;">Unsubscribe</a>
                 </p>
                 <p style="margin: 12px 0 0 0; font-size: 12px; color: #94a3b8;">
-                  © 2024 CodeDetector.ai. All rights reserved.
+                  © 2024 Beetle.ai. All rights reserved.
                 </p>
               </td>
             </tr>
