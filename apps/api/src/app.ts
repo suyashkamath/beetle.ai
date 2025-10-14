@@ -34,7 +34,13 @@ export function createApp(): Application {
   // Middleware
   app.use(
     cors({
-      origin: [process.env.FRONTEND_URL!, "http://localhost:3000", "https://beetle-ai.vercel.app"], // Specific origin instead of '*'
+      origin: [
+        process.env.FRONTEND_URL!,
+        "http://localhost:3000",
+        "https://beetle-ai.vercel.app",
+        "https://beetleai.dev",
+        "https://www.beetleai.dev",
+      ], // Specific origin instead of '*'
       credentials: true,
     })
   );
