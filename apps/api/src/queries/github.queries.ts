@@ -689,7 +689,7 @@ export const PrData = async (payload: any) => {
           callbacks,
           {pr_data_id: pr_data?.insertedId?.toString(), 
             auth_token: sandbox_token.auth_token,
-            base_url: "https://codeapi.campusbid.in"
+            base_url: "https://beetleapi.shivangyadav.com"
           },
           user.email
         ).then(async (result) => {
