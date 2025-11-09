@@ -1,13 +1,13 @@
 services:
-  codetector-api:
+  beetle-api:
     # For local development, use build
     # build:
     #   context: ../../
     #   dockerfile: apps/api/Dockerfile
     #   target: runner
     # For production deployment, use image from Docker Hub
-    image: ${DOCKER_USERNAME}/codetector-api:latest
-    container_name: codetector-api
+    image: ${DOCKER_USERNAME}/beetle-api:latest
+    container_name: beetle-api
     ports:
       - "${PORT:-3001}:3001"
     environment:
@@ -17,7 +17,7 @@ services:
       - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
       
       # Database Configuration
-      - CODETECTOR_DB=${CODETECTOR_DB}
+      - BEETLE_DB=${BEETLE_DB}
       
       # Application Configuration
       - PORT=${PORT:-3001}
@@ -78,13 +78,13 @@ services:
     
     # Network configuration
     networks:
-      - codetector-network
+      - beetle-network
 
   # Optional: Redis service if you want to run Redis locally
   # Uncomment if you don't have external Redis
   # redis:
   #   image: redis:7-alpine
-  #   container_name: codetector-redis
+  #   container_name: beetle-redis
   #   ports:
   #     - "6379:6379"
   #   volumes:
@@ -92,27 +92,27 @@ services:
   #   restart: unless-stopped
   #   command: redis-server --appendonly yes
   #   networks:
-  #     - codetector-network
+  #     - beetle-network
 
   # Optional: MongoDB service if you want to run MongoDB locally
   # Uncomment if you don't have external MongoDB
   # mongodb:
   #   image: mongo:7
-  #   container_name: codetector-mongodb
+  #   container_name: beetle-mongodb
   #   ports:
   #     - "27017:27017"
   #   environment:
   #     - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME:-admin}
   #     - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD:-password}
-  #     - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE:-codetector_ai}
+  #     - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE:-beetle_ai}
   #   volumes:
   #     - mongodb_data:/data/db
   #   restart: unless-stopped
   #   networks:
-  #     - codetector-network
+  #     - beetle-network
 
 networks:
-  codetector-network:
+  beetle-network:
     driver: bridge
 
 # Uncomment if using local services

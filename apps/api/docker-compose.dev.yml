@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  codetector-api:
+  beetle-api:
     build:
       context: ../../
       dockerfile: apps/api/Dockerfile
       target: runner
-    container_name: codetector-api-dev
+    container_name: beetle-api-dev
     ports:
       - "3001:3001"
     environment:

@@ -57,13 +57,13 @@ export function isBeetleMentioned(body?: string): boolean {
 /**
  * Determine if a new PR conversation comment is likely a reply to a Beetle comment.
  * Heuristics:
- * - Mentions the bot (e.g., @beetle-ai, @codetector-ai) or the word "beetle ai".
+ * - Mentions the bot (e.g., @beetle-ai, @beetle-ai) or the word "beetle ai".
  * - Contains a blockquote (>) referencing typical Beetle markers or suggestion fences.
  */
 export function isLikelyReplyToBeetleConversation(body: string): boolean {
   if (!body) return false;
   const lowered = body.toLowerCase();
-  const hasBotMention = /@beetle[-_]ai|@codetector[-_]ai|@.*\[bot\]/i.test(body);
+  const hasBotMention = /@beetle[-_]ai|@.*\[bot\]/i.test(body);
   const mentionsBeetle = lowered.includes('@beetle');
   const quotesBeetle = />\s*.*(beetle|```suggestion|###\s*problem)/i.test(body);
   logger.debug('Issue comment reply intent detection', {
