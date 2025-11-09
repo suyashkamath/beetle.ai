@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { SignInButton, SignUpButton, SignedOut, SignedIn } from "@clerk/nextjs";
-import CodetectorLogo from "@/components/shared/codetector-logo";
+import BeetleLogo from "@/components/shared/beetle-logo";
 import ThemeToggle from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-2 text-xl font-semibold text-white">
-          <CodetectorLogo />
+          <BeetleLogo />
           <span className="not-sr-only">BEETLE</span>
         </Link>
 

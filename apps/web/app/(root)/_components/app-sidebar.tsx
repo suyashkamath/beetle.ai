@@ -4,7 +4,7 @@ import { UserButton, OrganizationSwitcher } from "@clerk/nextjs";
 import { ScanTextIcon, StarsIcon, BotIcon, GitPullRequest } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import CodetectorLogo from "@/components/shared/codetector-logo";
+import BeetleLogo from "@/components/shared/beetle-logo";
 import ThemeToggle from "@/components/shared/theme-toggle";
 import {
   Sidebar,
@@ -78,7 +78,7 @@ const AppSidebar = () => {
             className={cn("p-0", open ? "not-sr-only" : "sr-only")}>
             <SidebarMenuButton asChild>
               <Link href={"/dashboard"} className="flex items-center gap-1">
-                <CodetectorLogo />
+                <BeetleLogo />
 
                 <span
                   className={cn(

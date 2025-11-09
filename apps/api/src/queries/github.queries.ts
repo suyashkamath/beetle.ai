@@ -182,7 +182,7 @@ export const commentOnIssueOpened = async (payload: any) => {
 
           const linkTarget = `http://localhost:3000/analysis/${encodeURIComponent(details.fullName)}?issue=${details.issueNumber}&autoStart=1`;
           const body = [
-            '🚀 Analyze and fix this issue with **[codetector-ai](https://github.com/apps/codetector-ai)**.',
+            '🚀 Analyze and fix this issue with **[beetle-ai](https://github.com/apps/beetle-ai)**.',
             '',
             `[Start now →](${linkTarget})`
           ].join('\n');

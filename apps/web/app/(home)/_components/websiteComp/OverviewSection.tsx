@@ -42,7 +42,7 @@ const OverviewSection = () => {
           className="max-w-[1200px] aspect-[1280/832] mx-auto p-3 md:rounded-2xl mask-b-from-55% border border-input/30">
           <Image
             src={"/analysis-page-dark.png"}
-            alt="Codetector Analysis Dashboard"
+            alt="Beetle Analysis Dashboard"
             width={1280}
             height={832}
             className="object-contain md:rounded-lg"

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.CODETECTOR_DB;
+const MONGODB_URI = process.env.BEETLE_DB;
 
 const connectDB = async () => {
     try {
         if (!MONGODB_URI) {
-            throw new Error("CODETECTOR_DB environment variable is not set");
+            throw new Error("BEETLE_DB environment variable is not set");
         }
         await mongoose.connect(MONGODB_URI);
         console.log("MongoDB connected");
