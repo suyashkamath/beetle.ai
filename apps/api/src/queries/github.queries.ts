@@ -741,7 +741,7 @@ export const PrData = async (payload: any) => {
               state: 'pending',
               context: 'Beetle',
               description: 'Beetle AI is reviewing…',
-              target_url: `https://beetleai.shivangyadav.com/github/${encodeURIComponent(repository.full_name)}/pull/${pull_request.number}`
+              target_url: `https://beetleai.dev/github/${encodeURIComponent(repository.full_name)}/pull/${pull_request.number}`
             });
             usedStatusFallback = true;
             logger.info('Created fallback commit status for Beetle AI Review', { prNumber: pull_request.number });
@@ -845,7 +845,7 @@ export const PrData = async (payload: any) => {
           callbacks,
           {pr_data_id: prDataInsertedId, 
             auth_token: sandbox_token.auth_token,
-            base_url: "https://beetleapi.shivangyadav.com",
+            base_url: "https://api.beetleai.dev",
             // Pass PR metadata for persistence
             pr_number: pull_request.number,
             pr_url: prUrl,
