@@ -58,7 +58,7 @@ export function createApp(): Application {
   // Root route
   app.get("/", (req: Request, res: Response) => {
     res.status(200).json({
-      message: "CodeTector API is running",
+      message: "Beetle API is running",
     });
   });
 
