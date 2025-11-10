@@ -463,6 +463,36 @@ export class PRCommentService {
   }
 
   /**
+   * Post a daily PR analysis limit reached status comment.
+   * Keeps the same links section used in the main status comment.
+   */
+  async postDailyLimitReachedComment(message?: string): Promise<boolean> {
+    try {
+      const body = [
+        PRCommentService.STATUS_MARKER,
+        `## 🪲 Daily PR Analysis Limit Reached`,
+        (message || `You've hit the daily PR analysis limit on your current plan. Consider upgrading your plan: https://beetleai.dev/dashboard`),
+        '',
+        '---',
+        `Links: [Beetle](https://beetleai.dev) · [X](https://x.com/beetleai_dev) · [LinkedIn](https://www.linkedin.com/company/beetle-ai)`,
+      ].join('\n');
+
+      const response = await this.octokit.issues.createComment({
+        owner: this.context.owner,
+        repo: this.context.repo,
+        issue_number: this.context.pullNumber,
+        body,
+      });
+
+      this.statusCommentId = response.data.id;
+      return true;
+    } catch (error) {
+      console.error(`[PR-${this.context.pullNumber}] ❌ Failed to post daily limit reached comment:`, error);
+      return false;
+    }
+  }
+
+  /**
    * Find the existing Beetle status/main comment on the PR by hidden marker.
    */
   private async findExistingStatusCommentId(): Promise<number | undefined> {
