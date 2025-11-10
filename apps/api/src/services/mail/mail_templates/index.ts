@@ -1,4 +1,4 @@
-// Core templates for codetector.ai
+// Core templates for beetleai.dev
 export { baseTemplate } from './baseTemplate.js';
 export { defaultTemplate } from './defaultTemplate.js';
 
