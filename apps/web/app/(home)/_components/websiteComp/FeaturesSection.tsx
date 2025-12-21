@@ -223,7 +223,7 @@ Start chatting and watch the workflow build itself. Code, tests, issues, reviews
               <CardHeading
                 icon={MapIcon}
                 title="Beetle IDE Extension"
-                description="Say hello to Beetle’s end-to-end repo analysis."
+                description="Say hello to Beetle’s in your IDE."
 
               />
             </CardHeader>
