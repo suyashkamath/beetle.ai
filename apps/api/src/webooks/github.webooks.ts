@@ -3,7 +3,7 @@ import { Webhooks } from '@octokit/webhooks';
 import { logger } from '../utils/logger.js';
 import { getInstallationOctokit } from '../lib/githubApp.js';
 import { respondToBeetleCommentReply, isBeetleBotAuthor, isBeetleMentioned, isLikelyBeetleComment, isLikelyReplyToBeetleConversation } from '../services/analysis/commentReplyService.js';
-import { commentOnIssueOpened, create_github_installation, delete_github_installation, PrData, handlePrMerged } from '../queries/github.queries.js';
+import { commentOnIssueOpened, create_github_installation, delete_github_installation, PrData, handlePrMerged, handleStopAnalysis } from '../queries/github.queries.js';
   // Set up GitHub webhooks
 export const webhooks = new Webhooks({ secret: process.env.GITHUB_WEBHOOK_SECRET! });
   
@@ -190,6 +190,48 @@ export const webhooks = new Webhooks({ secret: process.env.GITHUB_WEBHOOK_SECRET
 
       // Check for review trigger commands: @beetle review or @beetle-ai review
       const reviewTriggerPattern = /@(beetle-ai|beetle)\s+review\b/i;
+      const stopTriggerPattern = /@(beetle-ai|beetle)\s+stop\b/i;
+
+      // Handle stop command first
+      if (stopTriggerPattern.test(commentBody)) {
+        logger.info('Stop command detected in PR comment', {
+          repository: payload.repository?.full_name,
+          prNumber: payload.issue?.number,
+          commentAuthor: commentAuthorLogin,
+        });
+
+        const installationId = payload.installation?.id;
+        if (!installationId) {
+          logger.warn('Missing installation ID for stop command');
+          return;
+        }
+
+        // Fetch PR to get head SHA for check run update
+        const octokit = getInstallationOctokit(installationId);
+        const [owner, repo] = payload.repository.full_name.split('/');
+        let headSha: string | undefined;
+        
+        try {
+          const prResponse = await octokit.pulls.get({
+            owner,
+            repo,
+            pull_number: payload.issue.number,
+          });
+          headSha = prResponse.data.head.sha;
+        } catch (prErr) {
+          logger.warn('Failed to fetch PR for head SHA', { error: prErr instanceof Error ? prErr.message : prErr });
+        }
+
+        await handleStopAnalysis({
+          repository: payload.repository,
+          installation: { id: installationId },
+          prNumber: payload.issue.number,
+          headSha,
+        });
+
+        return;
+      }
+
       if (!reviewTriggerPattern.test(commentBody)) {
         return;
       }
