@@ -530,7 +530,7 @@ processedContent = processedContent.replace(
       '<details>',
       '<summary>📖 User Guide</summary>',
       '',
-      '- Once repos are connected, PR analysis is automatically enabled. You can disable analysis for this repo from [beetleai.dev/repositories](https://beetleai.dev/repositories)',
+      '- Once repos are connected, PR analysis is automatically enabled. You can disable analysis for this repo from [beetleai.dev/analysis](https://beetleai.dev/analysis)',
       '- Comment `@beetle-ai review` on any PR to start analysis manually',
       '- Comment `@beetle-ai stop` to stop any ongoing analysis',
       '',
