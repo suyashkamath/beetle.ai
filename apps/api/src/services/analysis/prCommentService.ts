@@ -15,6 +15,8 @@ export interface PRCommentContext {
   analysisId?: string;
   // Severity threshold for comment filtering: 0=all, 1=High+Critical, 2=Critical only
   severityThreshold?: number;
+  // PR summary settings to control summary comment posting
+  prSummarySettings?: { enabled: boolean };
 }
 
 export interface ParsedSuggestion {
@@ -335,6 +337,12 @@ processedContent = processedContent.replace(
       // Summary comments: update the initial Beetle status comment instead of posting a new one
       const trimmed = comment.content.trim();
       if (trimmed.startsWith('## Summary by Beetle')) {
+        // Check if PR summary is disabled in user settings
+        if (this.context.prSummarySettings?.enabled === false) {
+          logger.info(`[PR-${this.context.pullNumber}] ⏭️ Skipping summary comment - PR summary disabled in user settings`);
+          return false;
+        }
+        
         const updated = await this.updateStatusCommentWithSummary(comment.content);
         if (updated) {
           this.postedComments.add(commentHash);
@@ -535,8 +543,13 @@ processedContent = processedContent.replace(
     const severityLabel = this.getSeverityLabel();
     return [
       '',
+      '<details>',
+      '<summary>⚙️ Settings</summary>',
+      '',
       `**Severity Threshold**: \`${severityLabel}\` — [Change in Settings](https://beetleai.dev/settings)`,
       `**Custom Rules**: Define your own review rules — [Set Custom Rules](https://beetleai.dev/custom-context)`,
+      '',
+      '</details>',
       '',
       '<details>',
       '<summary>📖 User Guide</summary>',
@@ -712,12 +725,7 @@ processedContent = processedContent.replace(
       const footerContent = this.generateUserGuideFooter();
 
       bodyParts.push('');
-      bodyParts.push('<details>');
-      bodyParts.push('<summary>Settings</summary>');
-      bodyParts.push('');
       bodyParts.push(footerContent);
-      bodyParts.push('');
-      bodyParts.push('</details>');
       bodyParts.push('');
       bodyParts.push('---');
       bodyParts.push(`Follow us: [Beetle](https://beetleai.dev) · [X](https://x.com/beetleai_dev) · [LinkedIn](https://www.linkedin.com/company/beetle-ai)`);
@@ -751,7 +759,7 @@ processedContent = processedContent.replace(
    * Post a comment when PR has too many files (>100) and review is skipped.
    */
   async postTooManyFilesSkippedComment(fileCount: number): Promise<boolean> {
-    return this.postSkippedComment(`This PR has ${fileCount} files changed, which exceeds our limit of 100 files for automatic review.`);
+    return this.postSkippedComment(`This PR has more than 100 files changed, which exceeds our limit for automatic review.`);
   }
 
   /**
