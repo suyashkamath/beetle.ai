@@ -12,6 +12,7 @@ import {
   Bug,
   FileText,
   AtSign,
+  Trophy,
 } from "lucide-react";
 
 import BeetleLogo from "@/components/shared/beetle-logo";
@@ -26,7 +27,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -57,6 +57,11 @@ const items = [
     title: "Custom Rules",
     url: "/custom-context",
     icon: FileText,
+  },
+  {
+    title: "Leaderboard",
+    url: "/leaderboard",
+    icon: Trophy,
   },
   {
     title: "Settings",
