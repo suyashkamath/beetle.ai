@@ -170,8 +170,8 @@ const HowToInteractCard = () => {
           imageSrc="/@beetle.png"
           points={[
             <>Once repos are connected, PR analysis will automatically enabled</>,
-            <>Comment <Command>@beetle-ai review</Command> on any PR to start analysis manually</>,
-            <>Comment <Command>@beetle-ai stop</Command> to stop any ongoing analysis</>,
+            <>Comment <Command>@beetle</Command> on any PR to start analysis manually</>,
+            <>Comment <Command>@beetle stop</Command> to stop any ongoing analysis</>,
           ]}
           isSignedIn={isSignedIn}
         />
