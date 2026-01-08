@@ -556,8 +556,8 @@ processedContent = processedContent.replace(
       '<summary>📖 User Guide</summary>',
       '',
       '- Once repos are connected, PR analysis is automatically enabled. You can disable analysis for this repo from [beetleai.dev/analysis](https://beetleai.dev/analysis)',
-      '- Comment `@beetle-ai review` on any PR to start analysis manually',
-      '- Comment `@beetle-ai stop` to stop any ongoing analysis',
+      '- Comment `@beetle` on any PR to start analysis manually',
+      '- Comment `@beetle stop` to stop any ongoing analysis',
       '',
       '</details>',
     ].join('\n');
@@ -690,7 +690,7 @@ processedContent = processedContent.replace(
 
       if (showTriggerHint) {
         bodyParts.push('>');
-        bodyParts.push('> To trigger a single review, invoke the `@beetle-ai review` command.');
+        bodyParts.push('> To trigger a single review, invoke the `@beetle` command.');
       }
 
       const footerContent = this.generateUserGuideFooter();
