@@ -190,9 +190,8 @@ export const webhooks = new Webhooks({ secret: process.env.GITHUB_WEBHOOK_SECRET
 
       // Check for stop command first: @beetle stop or @beetle-ai stop
       const stopTriggerPattern = /@(beetle-ai|beetle)\s+stop\b/i;
-      // Check for review trigger: @beetle or @beetle-ai followed by anything (triggers review)
-const reviewTriggerPattern = /@(beetle-ai|beetle)(?!\s+stop\b)/i;
-
+      // Check for review trigger: @beetle or @beetle-ai followed by anything except "stop" (triggers review)
+      const reviewTriggerPattern = /@(beetle-ai|beetle)(?!\s+stop\b)/i;
 
       // Handle stop command first
       if (stopTriggerPattern.test(commentBody)) {
