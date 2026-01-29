@@ -3,9 +3,7 @@ import FooterSection from "../_components/ui/footer";
 import NavbarWeb from "../_components/ui/navbarWeb";
 import ParallaxBeetle from "../_components/ui/parallax-beetle";
 import SecurityTOC from "./toc";
-import { Shield, Server, Lock, Eye, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Shield, Server, Lock, Eye } from "lucide-react";
 
 export default function SecurityPage() {
   return (
